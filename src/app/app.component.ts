@@ -6,5 +6,22 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'todo-list';
+  title = 'My To Do List';
+  singleItem:string = ''
+  todoList:Array<string> = [];
+
+  todoItem(val:string){
+    this.singleItem = val;
+
+  }
+   AddItem(): void{
+    if(this.singleItem === ''){
+      return
+    }else{
+      this.todoList.push(this.singleItem);
+      this.singleItem = ''
+      console.log(this.todoList)
+    }
+  
+}
 }
