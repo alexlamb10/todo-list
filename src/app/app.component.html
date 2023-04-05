@@ -1,8 +1,0 @@
-<div>
-  <h1>{{title}}</h1>
-  <input type="text" (keyup)="todoItem(box.value)" #box placeholder="Add another task">
-  <button (click)="AddItem()" (click)="box.value = ''">Add</button>
-  <ul>
-    <li *ngFor="let item of todoList">{{item}}</li>
-  </ul>
-</div>
