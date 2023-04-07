@@ -8,7 +8,20 @@ import { Component, OnInit } from '@angular/core';
 export class TodoFormComponent implements OnInit {
 
   constructor() { }
+  AddItem(): void{
+    // if(this.singleItem === ''){
+    //   return
+    // }else{
+    //   this.todoList.push(this.singleItem);
+    //   this.singleItem = ''
+    //   console.log(this.todoList)
+    // }
+  }
 
+  todoItem(val:string){
+    // this.singleItem = val;
+
+  }
   ngOnInit(): void {
   }
 

@@ -8,9 +8,10 @@ import { Observable } from 'rxjs';
 export class TodoApiService {
 
   constructor(private _http: HttpClient) { }
+  baseURL = 'http://localhost:3000'
 
   getTodos(): Observable<any[]> {
-    return this._http.get<any[]>('https://jsonplaceholder.typicode.com/todos')
+    return this._http.get<any[]>(`${this.baseURL}/`)
   }
 
   getTodoById(id: string): Observable<any[]> {

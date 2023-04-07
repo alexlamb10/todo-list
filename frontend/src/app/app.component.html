@@ -1,16 +1,10 @@
 <!-- <div>
-  <h1>{{title}}</h1>
+  
   <tl-todo-form></tl-todo-form>
-  <input type="text" (keyup)="todoItem(box.value)" #box placeholder="Add another task">
-  <button (click)="AddItem()" (click)="box.value = ''">Add</button>
+  
   <tl-todo-list></tl-todo-list>
-  <ul *ngIf="todoList$ | async as todoList">
-    <li *ngFor="let item of todoList">
-      app-todo-item
-      {{item | json }}
-    </li>
-  </ul>
+  
 </div> -->
-
+<h1>{{title}}</h1>
 <tl-todo-form></tl-todo-form>
 <tl-todo-list></tl-todo-list>

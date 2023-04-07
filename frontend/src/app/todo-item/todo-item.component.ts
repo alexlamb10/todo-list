@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TodoItemComponent implements OnInit {
 
   constructor() { }
-
+    todoList = [];
   ngOnInit(): void {
   }
 
