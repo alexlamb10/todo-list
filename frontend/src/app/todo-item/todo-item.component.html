@@ -1,1 +1,1 @@
-<li [id]="item.id">{{item.task}}</li>
+<li [id]="item.id" [ngClass]="item.complete === true ? 'complete' : 'nothing'">{{item.task}}</li>

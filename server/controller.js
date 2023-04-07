@@ -7,7 +7,7 @@ let list = [
   {
     id: 2,
     task: "Go to work",
-    complete: false,
+    complete: true,
   },
   {
     id: 3,
