@@ -1,5 +1,5 @@
-<!-- <ul *ngIf="todoList$ | async as todoList"> -->
-    <ul>
-    <tl-todo-item></tl-todo-item>
-    {{todoList$ | async}}
+<ul *ngIf="todoList$ | async as todoList">
+    <li *ngFor="let item of todoList">
+      <tl-todo-item [item]="item"></tl-todo-item>
+    </li>
   </ul>
