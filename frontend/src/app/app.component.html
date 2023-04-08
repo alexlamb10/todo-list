@@ -6,5 +6,7 @@
   
 </div> -->
 <h1>{{title}}</h1>
-<tl-todo-form></tl-todo-form>
-<tl-todo-list></tl-todo-list>
+<tl-todo-form (addItem)="addItem($event)"></tl-todo-form>
+<ng-template *ngIf="todoList$ | async as todoList">
+  <tl-todo-list [todoList]="todoList"></tl-todo-list>
+</ng-template>

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TodoApiService } from './todo-api/todo-api.service'
-import { Observable } from 'rxjs';
+import { Observable, switchMap, tap } from 'rxjs';
 
 
 @Component({
@@ -11,15 +11,22 @@ import { Observable } from 'rxjs';
 export class AppComponent {
   title = 'My To Do List';
   singleItem:string = ''
-  // todoList:Array<string> = [];
+  todoList$:Observable<any> = new Observable
   
 
-  constructor(private _todos: TodoApiService) {}
+  constructor(private _todos: TodoApiService) {
+
+  }
 
   ngOnInit() {
     
   }
 
-  
+   addItem(todo:string): void{
+      this.todoList$ = this._todos.createTodo(todo).pipe(
+        tap( list => console.log({list})),
+        switchMap( () => this._todos.getTodos())
+      )
+   }
    
 }

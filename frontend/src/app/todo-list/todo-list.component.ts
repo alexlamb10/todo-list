@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { TodoApiService } from '../todo-api/todo-api.service';
+import { tap } from 'rxjs';
 
 @Component({
   selector: 'tl-todo-list',
@@ -8,16 +9,10 @@ import { TodoApiService } from '../todo-api/todo-api.service';
   styleUrls: ['./todo-list.component.css']
 })
 export class TodoListComponent implements OnInit {
+  @Input() todoList:any[] = []
 
-  constructor(private _todos: TodoApiService) {}
-  todoList$: Observable<any[]> = this._todos.getTodos(); 
-  ngOnInit() {
-    // this._todos.getTodoById('1').subscribe((todo) => {
-    //   console.log(todo);
-    // })
-    this._todos.getTodos().subscribe((list) =>{
-      console.log(list)
-    })
-  }
+  constructor() {}
+
+  ngOnInit() {}
 
 }

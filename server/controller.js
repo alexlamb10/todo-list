@@ -28,6 +28,18 @@ let list = [
 
 module.exports = {
   getList: (req, res) => {
+    // console.log(list);
     res.status(200).send(list);
+  },
+  addTodo: (req, res) => {
+    let { todo } = req.body;
+    let id = list.length + 1;
+    const item = {
+      id: id,
+      task: todo,
+      complete: false,
+    };
+    list.push(item);
+    return list;
   },
 };
