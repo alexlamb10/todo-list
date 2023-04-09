@@ -1,14 +1,17 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'tl-todo-item',
   templateUrl: './todo-item.component.html',
   styleUrls: ['./todo-item.component.css']
 })
-export class TodoItemComponent implements OnInit {
+export class TodoItemComponent {
+  @Output() markAsComplete:EventEmitter<any> = new EventEmitter
+
   @Input() item: any
   constructor() { }
-  ngOnInit(): void {
+  MarkAsComplete(id: any): void {
+    this.markAsComplete.emit(id)
   }
 
 }

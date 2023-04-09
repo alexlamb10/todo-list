@@ -1,23 +1,19 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { TodoApiService } from '../todo-api/todo-api.service';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'tl-todo-form',
   templateUrl: './todo-form.component.html',
   styleUrls: ['./todo-form.component.css']
 })
-export class TodoFormComponent implements OnInit {
+export class TodoFormComponent {
   @Output() addItem:EventEmitter<string> = new EventEmitter
 
   singleItem = ''
-  constructor(private _todos: TodoApiService) { }
+  constructor() { }
   AddItem(): void{
     if(this.singleItem === ''){
       return
     }else{
-      // console.log("hit", this.singleItem)
-      // const todo = this.singleItem
-      // this._todos.createTodo(todo)
       this.addItem.emit(this.singleItem)
       this.singleItem = ''
       
@@ -28,7 +24,6 @@ export class TodoFormComponent implements OnInit {
     this.singleItem = val;
 
   }
-  ngOnInit(): void {
-  }
+
 
 }

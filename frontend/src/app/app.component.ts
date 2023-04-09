@@ -28,5 +28,10 @@ export class AppComponent {
       this.displayList$.next(s)
     })
   }
+  markAsComplete(id: any): void {
+    this._todos.markComplete(id).subscribe((s) => {
+      this.displayList$.next(s)
+    })
+  }
 
 }

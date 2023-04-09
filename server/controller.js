@@ -33,7 +33,7 @@ module.exports = {
   },
   addTodo: (req, res) => {
     let { todo } = req.body;
-    console.log("ADD TODO", todo)
+    console.log("ADD TODO", todo);
     let id = list.length + 1;
     const item = {
       id: id,
@@ -41,6 +41,20 @@ module.exports = {
       complete: false,
     };
     list.push(item);
+    res.status(200).send(list);
+  },
+  markComplete: (req, res) => {
+    let { id } = req.params;
+
+    let index = list.findIndex((x) => {
+      return x.id == id;
+    });
+    if (list[index].complete === true) {
+      list[index].complete = false;
+    } else if (list[index].complete === false) {
+      list[index].complete = true;
+    }
+
     res.status(200).send(list);
   },
 };

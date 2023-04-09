@@ -14,12 +14,17 @@ export class TodoApiService {
   getTodos(): Observable<any[]> {
     return this._http.get<any[]>(`${this.baseURL}/`)
   }
-  getTodoById(id: string): Observable<any[]> {
-    return this._http.get<any[]>(`https://jsonplaceholder.typicode.com/todos/${id}`)
+  getTodoById(id: any): Observable<any[]> {
+    return this._http.get<any[]>(`${this.baseURL}/markComplete/:${id}`)
   }
 
   createTodo(todo: any) {
     return this._http.post<any[]>(`${this.baseURL}/add`, {todo}).pipe(
+      switchMap(() => this.getTodos()),
+    )
+  }
+  markComplete(id: number) {
+    return this._http.put<any[]>(`${this.baseURL}/markComplete/${id}`, {}).pipe(
       switchMap(() => this.getTodos()),
     )
   }

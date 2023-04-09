@@ -10,10 +10,11 @@ app.use(cors());
 app.use("/", express.static(path.join(__dirname, "../public")));
 const port = 3000;
 
-let { getList, addTodo } = require("./controller");
+let { getList, addTodo, markComplete } = require("./controller");
 
 app.get("/", getList);
 app.post("/add", addTodo);
+app.put("/markComplete/:id", markComplete);
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
