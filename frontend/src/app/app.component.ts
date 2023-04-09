@@ -1,32 +1,32 @@
-import { Component } from '@angular/core';
-import { TodoApiService } from './todo-api/todo-api.service'
-import { Observable, switchMap, tap } from 'rxjs';
+import {Component} from '@angular/core';
+import {TodoApiService} from './todo-api/todo-api.service'
+import {BehaviorSubject} from 'rxjs';
 
 
 @Component({
   selector: 'tl-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: [ './app.component.css' ]
 })
 export class AppComponent {
   title = 'My To Do List';
-  singleItem:string = ''
-  todoList$:Observable<any> = new Observable
-  
+  singleItem: string = ''
 
-  constructor(private _todos: TodoApiService) {
 
-  }
+  displayList$: BehaviorSubject<any> = new BehaviorSubject<any>([])
+
+
+  constructor(private _todos: TodoApiService) { }
 
   ngOnInit() {
-    
+    this._todos.getTodos().pipe(
+    ).subscribe(list => this.displayList$.next(list))
   }
 
-   addItem(todo:string): void{
-      this.todoList$ = this._todos.createTodo(todo).pipe(
-        tap( list => console.log({list})),
-        switchMap( () => this._todos.getTodos())
-      )
-   }
-   
+  addItem(todo: string): void {
+    this._todos.createTodo(todo).subscribe((s) => {
+      this.displayList$.next(s)
+    })
+  }
+
 }

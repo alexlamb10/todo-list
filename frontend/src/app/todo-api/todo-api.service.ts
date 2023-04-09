@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http'
-import { Observable, tap } from 'rxjs';
+import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http'
+import {Observable, switchMap} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TodoApiService {
-  list: Observable<any[]> | any ;
+  list: Observable<any[]> | any;
 
   constructor(private _http: HttpClient) { }
   baseURL = 'http://localhost:3000'
@@ -19,6 +19,8 @@ export class TodoApiService {
   }
 
   createTodo(todo: any) {
-    return this._http.post<any[]>(`${this.baseURL}/add`, {todo})
+    return this._http.post<any[]>(`${this.baseURL}/add`, {todo}).pipe(
+      switchMap(() => this.getTodos()),
+    )
   }
 }
