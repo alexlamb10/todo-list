@@ -33,6 +33,7 @@ module.exports = {
   },
   addTodo: (req, res) => {
     let { todo } = req.body;
+    console.log("ADD TODO", todo)
     let id = list.length + 1;
     const item = {
       id: id,
@@ -40,6 +41,6 @@ module.exports = {
       complete: false,
     };
     list.push(item);
-    return list;
+    res.status(200).send(list);
   },
 };
