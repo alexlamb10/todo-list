@@ -26,20 +26,20 @@ let list = [
   },
 ];
 
+let addedId = list.length + 1;
+
 module.exports = {
   getList: (req, res) => {
-    // console.log(list);
     res.status(200).send(list);
   },
   addTodo: (req, res) => {
     let { todo } = req.body;
-    console.log("ADD TODO", todo);
-    let id = list.length + 1;
     const item = {
-      id: id,
+      id: addedId,
       task: todo,
       complete: false,
     };
+    addedId = addedId + 1;
     list.push(item);
     res.status(200).send(list);
   },
