@@ -1,3 +1,3 @@
 <h1>{{title}}</h1>
 <tl-todo-form (addItem)="addItem($event)"></tl-todo-form>
-<tl-todo-list [todoList]="displayList$.value"></tl-todo-list>
+<tl-todo-list [todoList]="displayList$.value" (markComplete)="markComplete($event)"></tl-todo-list>

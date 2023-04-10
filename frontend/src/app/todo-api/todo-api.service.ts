@@ -23,4 +23,10 @@ export class TodoApiService {
       switchMap(() => this.getTodos()),
     )
   }
+
+  markComplete(id: string) {
+    return this._http.put<any[]>(`${this.baseURL}/${id}`, {}).pipe(
+      switchMap(() => this.getTodos()),
+    )
+  }
 }

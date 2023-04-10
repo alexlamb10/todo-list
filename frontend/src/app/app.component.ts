@@ -29,4 +29,10 @@ export class AppComponent {
     })
   }
 
+  markComplete(id: string): void {
+    this._todos.markComplete(id).subscribe((s) => {
+      this.displayList$.next(s)
+    })
+  }
+
 }

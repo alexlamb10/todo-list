@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'tl-todo-list',
@@ -7,4 +7,6 @@ import {Component, Input} from '@angular/core';
 })
 export class TodoListComponent {
   @Input() todoList: any[] = []
+  @Output() markComplete: EventEmitter<string> = new EventEmitter<string>()
+
 }

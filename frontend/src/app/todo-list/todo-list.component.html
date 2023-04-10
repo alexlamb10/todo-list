@@ -1,5 +1,5 @@
 <ul>
   <li *ngFor="let item of todoList">
-    <tl-todo-item [item]="item"></tl-todo-item>
+    <tl-todo-item (click)="markComplete.emit(item.id.toString())" [item]="item"></tl-todo-item>
   </li>
 </ul>
