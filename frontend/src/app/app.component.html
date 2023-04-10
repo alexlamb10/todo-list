@@ -1,3 +1,4 @@
 <h1>{{title}}</h1>
 <tl-todo-form (addItem)="addItem($event)"></tl-todo-form>
-<tl-todo-list [todoList]="displayList$.value" (markComplete)="markComplete($event)"></tl-todo-list>
+<tl-todo-list *ngIf="displayList$ | async as displayList" [todoList]="displayList"
+    (markComplete)="markComplete($event)"></tl-todo-list>
