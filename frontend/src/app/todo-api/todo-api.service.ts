@@ -28,4 +28,9 @@ export class TodoApiService {
       switchMap(() => this.getTodos()),
     )
   }
+  deleteTask(id: number) {
+    return this._http.delete<any[]>(`${this.baseURL}/deleteTask/${id}`, {}).pipe(
+      switchMap(() => this.getTodos()),
+    )
+  }
 }

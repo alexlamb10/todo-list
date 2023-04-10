@@ -1,1 +1,1 @@
-<li [id]="item.id" [ngClass]="item.complete === true ? 'complete' : 'nothing'"(click)="MarkAsComplete(item.id)">{{item.task}}</li>
+<li [id]="item.id" [ngClass]="item.complete === true ? 'complete' : 'nothing'"><div (click)="MarkAsComplete(item.id)">{{item.task}}</div> <button [id]="item.id" (click)="DeleteTask(item.id)">Delete</button></li>

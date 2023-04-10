@@ -57,4 +57,14 @@ module.exports = {
 
     res.status(200).send(list);
   },
+  deleteTask: (req, res) => {
+    let { id } = req.params;
+
+    let index = list.findIndex((x) => {
+      return x.id == id;
+    });
+
+    list.splice(index, 1);
+    res.status(200).send(list);
+  },
 };

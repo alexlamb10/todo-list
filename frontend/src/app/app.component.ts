@@ -33,5 +33,10 @@ export class AppComponent {
       this.displayList$.next(s)
     })
   }
+  deleteTask(id: any): void {
+    this._todos.deleteTask(id).subscribe((s) => {
+      this.displayList$.next(s)
+    })
+  }
 
 }
