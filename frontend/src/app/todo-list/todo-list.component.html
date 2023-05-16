@@ -1,4 +1,4 @@
-<ul>
+<ul class="bullet">
   <li *ngFor="let item of todoList">
     <tl-todo-item [item]="item" (markAsComplete)="this.markAsComplete.emit($event)" (deleteTask)="this.deleteTask.emit($event)"></tl-todo-item>
   </li>
