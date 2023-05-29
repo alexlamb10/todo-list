@@ -1,7 +1,6 @@
 
 <div>
-    <input class="box" type="text" [value]="item$.value.task">
-    <button class="button" [id]="item$.value.id">Save</button>
+    <input class="box" (keyup)="todoItem(box.value)" #box type="text" [value]="item$.value.task">
+    <button class="button" (click)="updateItem()"  [id]="item$.value.id">Save</button>
     <button class="button" routerLink="/">Back</button>
-
 </div>

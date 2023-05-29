@@ -15,9 +15,14 @@ export class TodoApiService {
     return this._http.get<any[]>(`${this.baseURL}/`)
   }
   getTodoById(id: any): Observable<any[]> {
-    console.log(id)
     return this._http.get<any[]>(`${this.baseURL}/getTodoById/${id}`, {})
   }
+  updateItem(id: any,newItem: string): Observable<any[]> {
+    
+    return this._http.put<any[]>(`${this.baseURL}/updateItemById/${id}`, { newItem }).pipe(
+      switchMap(() => this.getTodoById(id)),
+    )
+    }
 
   createTodo(todo: any) {
     return this._http.post<any[]>(`${this.baseURL}/add`, {todo}).pipe(

@@ -77,4 +77,15 @@ module.exports = {
     item = list[index];
     res.status(200).send(item);
   },
+  updateItem: (req, res) => {
+    let { id } = req.params;
+    let { newItem } = req.body;
+
+    let index = list.findIndex((x) => {
+      return x.id == id;
+    });
+    
+    list[index].task = newItem;
+    res.status(200).send(item);
+  },
 };
