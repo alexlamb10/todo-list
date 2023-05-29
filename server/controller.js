@@ -59,7 +59,6 @@ module.exports = {
   },
   deleteTask: (req, res) => {
     let { id } = req.params;
-    console.log(id);
     let index = list.findIndex((x) => {
       return x.id == id;
     });

@@ -24,8 +24,8 @@ export class EditItemComponent implements OnInit {
   updateItem(): void{
     this._todos.updateItem(+this.id, this.singleItem).subscribe((s) => {
       this.item$.next(s)
+      alert("Item has been updated")
     })
-      // this._todos.updateItem(+this.id, this.singleItem); 
   }
 
   todoItem(val:string){
