@@ -8,21 +8,20 @@ import { Component, EventEmitter, Output } from '@angular/core';
 export class TodoFormComponent {
   @Output() addItem:EventEmitter<string> = new EventEmitter
 
-  singleItem = ''
+  singleItem = '';
   constructor() { }
   AddItem(): void{
     if(this.singleItem === ''){
       return
     }else{
       this.addItem.emit(this.singleItem)
-      this.singleItem = ''
+      this.singleItem = '';
       
     }
   }
 
   todoItem(val:string){
     this.singleItem = val;
-
   }
 
 
