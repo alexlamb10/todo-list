@@ -75,7 +75,6 @@ module.exports = {
     });
 
     item = list[index];
-    console.log({index, id, item});
     res.status(200).send(item);
   },
 };

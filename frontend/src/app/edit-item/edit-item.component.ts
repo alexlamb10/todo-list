@@ -11,30 +11,14 @@ import { TodoApiService } from '../todo-api/todo-api.service';
 export class EditItemComponent implements OnInit {
   item$: BehaviorSubject<any> = new BehaviorSubject<any>([])
 
-  // public item$: Observable<any> = this._route.params.pipe(
-  //   map((params: Params)=> {
-  //     return +params['id'];
-  //   }),
-  //   switchMap((id:number) => {
-  //     return this._todos.getTodoById(id);
-  //   })
-  // )
-
   constructor(private _route: ActivatedRoute, private _todos: TodoApiService) { }
 
   ngOnInit(): void {
-    // this._route.params.pipe(
-    //   map((params: Params)=> {
-    //     console.log(params)
-    //     return +params['id'];
-    //   }),
-    //   switchMap((id:number) => {
-    //     return this._todos.getTodoById(id);
-    //   })
-    // )
     let id = this._route.snapshot.params['id'];
     this._todos.getTodoById(id).pipe(
       ).subscribe(list => this.item$.next(list));
+
+      console.log(this.item$)
   }
 
 }
