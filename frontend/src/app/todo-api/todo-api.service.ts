@@ -15,7 +15,8 @@ export class TodoApiService {
     return this._http.get<any[]>(`${this.baseURL}/`)
   }
   getTodoById(id: any): Observable<any[]> {
-    return this._http.get<any[]>(`${this.baseURL}/markComplete/:${id}`)
+    console.log(id)
+    return this._http.get<any[]>(`${this.baseURL}/getTodoById/${id}`, {})
   }
 
   createTodo(todo: any) {

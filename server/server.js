@@ -10,9 +10,10 @@ app.use(cors());
 app.use("/", express.static(path.join(__dirname, "../public")));
 const port = 3000;
 
-let { getList, addTodo, markComplete, deleteTask } = require("./controller");
+let { getList, addTodo, markComplete, deleteTask, getTodoById } = require("./controller");
 
 app.get("/", getList);
+app.get("/getTodoById/:id", getTodoById);
 app.post("/add", addTodo);
 app.put("/markComplete/:id", markComplete);
 app.delete("/deleteTask/:id", deleteTask);

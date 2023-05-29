@@ -59,12 +59,23 @@ module.exports = {
   },
   deleteTask: (req, res) => {
     let { id } = req.params;
-
+    console.log(id);
     let index = list.findIndex((x) => {
       return x.id == id;
     });
 
     list.splice(index, 1);
     res.status(200).send(list);
+  },
+  getTodoById: (req, res) => {
+    let { id } = req.params;
+
+    let index = list.findIndex((x) => {
+      return x.id == id;
+    });
+
+    item = list[index];
+    console.log({index, id, item});
+    res.status(200).send(item);
   },
 };
